@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plan E-commerce: UrbanStyle - Flow Legendario</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;700;900&display=swap');
+        
+        body { font-family: 'Montserrat', sans-serif; background-color: #0f0f0f; color: #e0e0e0; }
+        h1, h2, h3, h4, .brand-font { font-family: 'Bebas Neue', cursive; letter-spacing: 2px; }
+        
+        /* Estética "Reggaeton Old School" - Neón y Oscuridad */
+        .hero-bg { 
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1545959714-358058296238?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            border-bottom: 4px solid #ccff00; /* Verde Neón */
+        }
+        
+        .neon-text {
+            text-shadow: 0 0 10px rgba(204, 255, 0, 0.7);
+            color: #ccff00;
+        }
+
+        .card-urban {
+            background: #1a1a1a;
+            border: 1px solid #333;
+            transition: all 0.3s ease;
+        }
+        
+        .card-urban:hover {
+            transform: translateY(-5px);
+            border-color: #ccff00;
+            box-shadow: 0 10px 20px rgba(204, 255, 0, 0.1);
+        }
+
+        .phone-mockup {
+            border: 8px solid #222;
+            border-radius: 20px;
+            background: #000;
+            box-shadow: 0 0 30px rgba(204, 255, 0, 0.2);
+        }
+
+        /* Gradiente "Flow 2000s" */
+        .gradient-retro {
+            background: linear-gradient(45deg, #ff00cc, #333399);
+        }
+
+        /* ESTILOS PARA IMPRESIÓN/PDF */
+        @media print {
+            body { background-color: white !important; color: black !important; }
+            .hero-bg { background-image: none !important; background-color: white !important; border-bottom: 2px solid black !important; color: black !important; min-h: auto !important; height: auto !important; }
+            h1, h2, h3, h4, strong { color: black !important; text-shadow: none !important; }
+            p, li, span { color: #333 !important; }
+            .card-urban, section { background: white !important; border: 1px solid #ddd !important; color: black !important; box-shadow: none !important; }
+            .neon-text, .text-transparent, .text-white { color: black !important; -webkit-text-fill-color: black !important; }
+            .no-print { display: none !important; } /* Ocultar botones al imprimir */
+            a { color: blue !important; text-decoration: underline; }
+            .phone-mockup { border: 2px solid #000; box-shadow: none; }
+        }
+    </style>
+</head>
+<body class="selection:bg-green-400 selection:text-black">
+
+    <!-- Botón Flotante para Guardar PDF (Solo visible en pantalla) -->
+    <div class="fixed bottom-6 right-6 z-50 no-print animate-bounce">
+        <button onclick="window.print()" class="bg-white text-black font-bold py-3 px-6 rounded-full shadow-2xl hover:bg-gray-200 transition flex items-center border-2 border-black">
+            <i class="fas fa-file-pdf mr-2 text-red-600"></i> Guardar como PDF
+        </button>
+    </div>
+
+    <!-- Portada Visual -->
+    <header class="hero-bg min-h-[75vh] flex flex-col justify-center items-center text-center p-8 relative">
+        <div class="max-w-5xl z-10">
+            <span class="bg-yellow-400 text-black text-sm font-black px-4 py-1 skew-x-[-10deg] uppercase tracking-widest mb-6 inline-block border border-black">Proyecto de Expansión Digital</span>
+            
+            <h1 class="text-7xl md:text-9xl mb-2 tracking-tighter text-white leading-none">
+                URBAN<span class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-green-400">STYLE</span>
+            </h1>
+            
+            <p class="text-2xl md:text-3xl mb-10 font-bold text-gray-200 tracking-wide uppercase">
+                "El Flow de Antes, <span class="neon-text">La Tienda de Hoy</span>"
+            </p>
+            
+            <div class="flex flex-col md:flex-row gap-6 justify-center items-center no-print">
+                <a href="#estrategia" class="bg-[#ccff00] text-black px-10 py-4 rounded-none font-black text-xl hover:bg-white hover:scale-105 transition transform skew-x-[-10deg] uppercase">
+                    <i class="fas fa-compact-disc mr-2"></i> Ver La Estrategia
+                </a>
+                <div class="text-right border-l-4 border-yellow-400 pl-4">
+                    <p class="text-sm text-gray-400 uppercase tracking-widest">Presentado por:</p>
+                    <p class="font-bold text-white text-lg">Miguel Angel Peralta Cano</p>
+                </div>
+            </div>
+            <!-- Versión impresa del autor -->
+            <div class="hidden print:block mt-4 border-t pt-4">
+                <p><strong>Estudiante:</strong> Miguel Angel Peralta Cano</p>
+                <p><strong>Docente:</strong> Paola Avril</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contexto del Negocio -->
+    <section class="py-16 bg-[#111] border-b border-gray-800">
+        <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+            <div>
+                <h2 class="text-5xl text-white mb-6">La Nueva Era <span class="text-pink-500">Del Bloque</span></h2>
+                <p class="text-gray-400 text-lg mb-6 leading-relaxed">
+                    Somos <strong>UrbanStyle</strong>. Nacimos en el barrio y vestimos a la calle. Nuestro cliente no busca solo ropa, busca <strong>identidad</strong>. Inspirados en la estética Y2K y el reguetón de la vieja escuela (Daddy Yankee, Don Omar), traemos una propuesta de moda nostálgica pero adaptada al mundo digital.
+                </p>
+                <div class="bg-gray-900 p-6 border-l-4 border-[#ccff00]">
+                    <p class="font-black text-[#ccff00] uppercase text-xl mb-2">Misión del E-commerce:</p>
+                    <p class="text-gray-300">Llevar la esencia del "caserío" y la moda urbana local a un nivel global, rompiendo fronteras sin perder el flow.</p>
+                </div>
+            </div>
+            <div class="relative group">
+                <!-- Imagen con filtro urbano -->
+                <div class="absolute inset-0 bg-[#ccff00] opacity-20 mix-blend-multiply rounded-lg"></div>
+                <img src="https://images.unsplash.com/photo-1523398002811-999ca8dec234?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Estilo Urbano" class="rounded-lg w-full h-80 object-cover grayscale group-hover:grayscale-0 transition duration-500">
+                <div class="absolute -bottom-4 -left-4 bg-black border border-white p-4">
+                    <p class="text-white font-black text-2xl tracking-widest">ESTILO 100% REAL</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fundamentos Teóricos -->
+    <section class="py-16 bg-[#0a0a0a]">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="text-4xl text-center mb-12 text-white">Los 3 Pilares del <span class="text-[#ccff00]">Imperio Digital</span></h2>
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Card 1 -->
+                <div class="card-urban p-8">
+                    <i class="fas fa-globe-americas text-4xl text-pink-500 mb-4"></i>
+                    <h3 class="text-2xl text-white mb-2">Omnicanalidad "Calle & Nube"</h3>
+                    <p class="text-gray-500 text-sm">El cliente ve la prenda en Instagram, la compra en la web y la recoge en el barrio. Todo conectado.</p>
+                </div>
+                <!-- Card 2 -->
+                <div class="card-urban p-8">
+                    <i class="fas fa-chart-bar text-4xl text-yellow-400 mb-4"></i>
+                    <h3 class="text-2xl text-white mb-2">Data con Flow</h3>
+                    <p class="text-gray-500 text-sm">Sabemos lo que escuchan y lo que visten. Usamos datos para recomendar el outfit perfecto para el fin de semana.</p>
+                </div>
+                <!-- Card 3 -->
+                <div class="card-urban p-8">
+                    <i class="fas fa-fist-raised text-4xl text-[#ccff00] mb-4"></i>
+                    <h3 class="text-2xl text-white mb-2">La Familia (Comunidad)</h3>
+                    <p class="text-gray-500 text-sm">No tenemos clientes, tenemos un crew. Fidelización a través de pertenencia y cultura urbana.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ESTRATEGIA PRÁCTICA -->
+    <section id="estrategia" class="py-16 px-6 max-w-6xl mx-auto bg-[#111]">
+        <div class="mb-12 border-b border-gray-800 pb-8">
+            <h2 class="text-6xl text-white mb-2">Plan Maestro <span class="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-purple-500">"Hasta Abajo"</span></h2>
+            <p class="text-xl text-gray-500 font-mono">Docente: Paola Avril | Estudiante: Miguel Angel Peralta Cano</p>
+        </div>
+
+        <!-- 1. Plataforma -->
+        <div class="bg-[#1a1a1a] border border-gray-800 mb-16 flex flex-col md:flex-row">
+            <div class="bg-[#ccff00] text-black p-10 md:w-1/3 flex flex-col justify-center items-center text-center">
+                <i class="fab fa-shopify text-8xl mb-4"></i>
+                <h3 class="text-4xl font-black">SHOPIFY</h3>
+                <span class="bg-black text-white px-3 py-1 text-sm font-bold uppercase mt-2">La Base de Operaciones</span>
+            </div>
+            <div class="p-10 md:w-2/3">
+                <h4 class="text-2xl text-white mb-4">¿Por qué esta plataforma?</h4>
+                <ul class="space-y-6">
+                    <li class="flex items-start">
+                        <i class="fas fa-bolt text-yellow-400 mt-1 mr-4 text-xl"></i>
+                        <div>
+                            <strong class="block text-white text-lg">Rapidez Furiosa</strong>
+                            <p class="text-gray-500">Carga rápida en móviles. Nuestros clientes compran desde el celular mientras están en la calle o en la fiesta.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-share-alt text-pink-500 mt-1 mr-4 text-xl"></i>
+                        <div>
+                            <strong class="block text-white text-lg">Conexión Directa</strong>
+                            <p class="text-gray-500">Integración nativa con TikTok y Instagram Shopping para vender sin salir de la app.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 2. Estrategia Visual y Modelos -->
+        <div class="mb-20">
+            <h3 class="text-4xl text-white mb-8 border-l-8 border-pink-500 pl-4">Estrategia Visual: <span class="text-gray-500">Talento de Barrio</span></h3>
+            
+            <div class="grid md:grid-cols-2 gap-10 items-center">
+                <div class="space-y-6">
+                    <div class="bg-[#222] p-6 border-l-4 border-yellow-400">
+                        <h4 class="text-xl text-white mb-2 font-bold">1. Casting Urbano</h4>
+                        <p class="text-gray-400">Nada de modelos de stock aburridos. Haremos convocatorias abiertas en barrios icónicos para encontrar <strong>rostros reales con actitud</strong>. Gente que vive la cultura.</p>
+                    </div>
+                    <div class="bg-[#222] p-6 border-l-4 border-pink-500">
+                        <h4 class="text-xl text-white mb-2 font-bold">2. Estética "Video Clip 2005"</h4>
+                        <p class="text-gray-400">Sesiones de fotos con lentes "Ojo de Pez", saturación alta, fondos de graffiti, autos modificados y poses de poder. Queremos que la web parezca un video musical de reguetón clásico.</p>
+                    </div>
+                    <div class="bg-[#222] p-6 border-l-4 border-[#ccff00]">
+                        <h4 class="text-xl text-white mb-2 font-bold">3. Modelos Llamativos</h4>
+                        <p class="text-gray-400">Buscaremos perfiles diversos pero impactantes: tatuajes visibles, cortes de pelo degradados, trenzas y accesorios "bling bling" exagerados para resaltar las prendas básicas.</p>
+                    </div>
+                </div>
+                <!-- Collage Visual -->
+                <div class="grid grid-cols-2 gap-4">
+                    <img src="https://images.unsplash.com/photo-1582266255765-fa5cf1a1d501?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" class="w-full h-48 object-cover grayscale hover:grayscale-0 transition border-2 border-white">
+                    <img src="https://images.unsplash.com/photo-1509319117193-51043f65ff11?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" class="w-full h-48 object-cover grayscale hover:grayscale-0 transition border-2 border-white">
+                    <div class="col-span-2 bg-[#ccff00] h-48 flex items-center justify-center p-4">
+                        <p class="text-black font-black text-3xl text-center leading-none">LA CALLE ES NUESTRA PASARELA</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. Social E-commerce -->
+        <div class="grid md:grid-cols-2 gap-12 items-center mb-16">
+            <div class="order-2 md:order-1">
+                <h3 class="text-4xl text-white mb-6">Redes Sociales: <span class="text-[#ccff00]">Puro Perreo & Moda</span></h3>
+                <p class="text-gray-400 mb-8">Nuestra estrategia de contenido mezclará la nostalgia musical con la moda actual.</p>
+                
+                <div class="space-y-4">
+                    <div class="flex items-center gap-4 p-5 card-urban">
+                        <div class="text-pink-500 text-3xl"><i class="fab fa-instagram"></i></div>
+                        <div>
+                            <h5 class="text-xl text-white font-bold">Reels "Antes vs Ahora"</h5>
+                            <p class="text-gray-400 text-sm">Transiciones usando hits de reguetón viejo mostrando cómo adaptar el estilo Y2K hoy.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4 p-5 card-urban">
+                        <div class="text-white text-3xl"><i class="fab fa-tiktok"></i></div>
+                        <div>
+                            <h5 class="text-xl text-white font-bold">Challenge #FlowLegendario</h5>
+                            <p class="text-gray-400 text-sm">Buscamos al "King" y la "Queen" del estilo. Los ganadores serán la cara de la próxima colección.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Phone Mockup Dark Mode -->
+            <div class="order-1 md:order-2 flex justify-center">
+                <div class="phone-mockup w-72 bg-black text-white relative">
+                    <!-- UI -->
+                    <div class="h-14 flex items-center justify-between px-4 border-b border-gray-800">
+                        <span class="font-bold text-sm">urbanstyle_official</span>
+                        <i class="fas fa-ellipsis-h"></i>
+                    </div>
+                    <!-- Post -->
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" class="w-full h-80 object-cover opacity-90">
+                        <!-- Music Tag -->
+                        <div class="absolute bottom-4 left-4 bg-black/60 backdrop-blur px-3 py-1 rounded-full text-xs flex items-center border border-white/20">
+                            <i class="fas fa-music mr-2 animate-spin-slow"></i> <span>Gasolina - Daddy Yankee</span>
+                        </div>
+                    </div>
+                    <!-- Actions -->
+                    <div class="p-4">
+                        <div class="flex gap-4 text-2xl mb-3 text-[#ccff00]">
+                            <i class="fas fa-heart"></i> <i class="fas fa-comment"></i> <i class="fas fa-paper-plane text-white"></i>
+                        </div>
+                        <p class="text-xs text-gray-300"><span class="font-bold text-white">urbanstyle_official</span> El flow no se compra, se lleva. 🔥 Nueva colección "Bling Era" disponible ya en el link de la bio. #ReggaetonVibes #ModaUrbana</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Presupuesto y Cronograma -->
+    <section id="presupuesto" class="py-16 gradient-retro text-white">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Tabla Presupuesto -->
+                <div>
+                    <h3 class="text-3xl mb-6 font-black bg-black inline-block px-4 py-1 skew-x-[-10deg]">PRESUPUESTO INICIAL</h3>
+                    <div class="bg-black/40 backdrop-blur p-6 border border-white/20">
+                        <table class="w-full text-sm font-mono">
+                            <tbody class="divide-y divide-white/20">
+                                <tr><td class="py-3">Plataforma & Hosting</td><td class="py-3 text-right text-[#ccff00]">$410 USD</td></tr>
+                                <tr><td class="py-3">Producción (Modelos Locales + Fotógrafo)</td><td class="py-3 text-right text-[#ccff00]">$600 USD</td></tr>
+                                <tr><td class="py-3">Marketing (Ads + Influencers Barrio)</td><td class="py-3 text-right text-[#ccff00]">$800 USD</td></tr>
+                                <tr><td class="py-3">Packaging "Graffiti"</td><td class="py-3 text-right text-[#ccff00]">$300 USD</td></tr>
+                                <tr class="text-xl font-bold bg-white/10"><td class="py-4 pl-2">TOTAL INVERSIÓN</td><td class="py-4 text-right pr-2">$2,110 USD</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Cronograma -->
+                <div>
+                    <h3 class="text-3xl mb-6 font-black bg-black inline-block px-4 py-1 skew-x-[-10deg]">PLAN DE ATAQUE</h3>
+                    <div class="border-l-2 border-white pl-6 space-y-8">
+                        <div class="relative">
+                            <span class="absolute -left-[33px] bg-[#ccff00] text-black w-8 h-8 flex items-center justify-center font-bold rounded-full">1</span>
+                            <h4 class="font-bold text-xl">Mes 1: Pre-Producción</h4>
+                            <p class="text-sm opacity-80">Casting de modelos en la zona, diseño web oscuro/neón y carga de inventario.</p>
+                        </div>
+                        <div class="relative">
+                            <span class="absolute -left-[33px] bg-pink-500 text-white w-8 h-8 flex items-center justify-center font-bold rounded-full">2</span>
+                            <h4 class="font-bold text-xl">Mes 2: Hype & Contenido</h4>
+                            <p class="text-sm opacity-80">Rodaje de videos estilo videoclip. Campaña de expectativa "Vuelve el Old School".</p>
+                        </div>
+                        <div class="relative">
+                            <span class="absolute -left-[33px] bg-white text-black w-8 h-8 flex items-center justify-center font-bold rounded-full">3</span>
+                            <h4 class="font-bold text-xl">Mes 3: El Estreno</h4>
+                            <p class="text-sm opacity-80">Lanzamiento oficial con evento en vivo en IG y descuentos flash.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black text-gray-500 py-10 border-t border-gray-900">
+        <div class="max-w-4xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-sm">
+            <div class="mb-4 md:mb-0">
+                <p class="font-bold text-white uppercase tracking-widest">UrbanStyle E-Commerce</p>
+                <p>Materia: Comercio Electrónico</p>
+            </div>
+            <div class="text-right">
+                <p>Estudiante: <span class="text-[#ccff00]">Miguel Angel Peralta Cano</span></p>
+                <p>Docente: <span class="text-pink-500">Paola Avril</span></p>
+            </div>
+        </div>
+        <p class="text-center text-xs mt-8 opacity-30">© 2024 UrbanStyle. Todos los derechos del flow reservados.</p>
+    </footer>
+
+</body>
+</html>
