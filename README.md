@@ -8,4 +8,6 @@ Este repositorio contiene una página web diseñada para la marca de ropa **Urba
 * **Función de exportación**: Incluye una opción configurada para que la vista de la página se pueda imprimir directamente a formato PDF de forma ordenada.
 
 ## Archivos del repositorio
-* `index.html`: Código HTML y estructura de la página con los estilos embebidos.
+* `index.html`: Estructura HTML de la landing page.
+* `css/style.css`: Estilos de diseno de la pagina (estetica neon/oscura y adaptacion de impresion a PDF).
+* `js/app.js`: Funcionalidad interactiva y exportacion a PDF.
